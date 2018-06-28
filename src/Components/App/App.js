@@ -10,29 +10,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchResults: [{
-        name: 'Blistered',
-        artist: 'Strife',
-        album: 'In This Defiance',
-        id: 1
-      },
-      {
-        name:'Let The Past Be The Past',
-        artist: '25 ta life',
-        album: 'Friendship Loyalty Commitment',
-        id: 2
-      },
-      {
-        name: 'Kill Your Parents',
-        artist: 'Slapshot',
-        album: 'Digital Warfare',
-        id: 3
-      }],
+      searchResults: [],
       playlistName: 'Hardcore',
       playlistTracks: [{
         name: 'Firestorm',
         artist: 'Earth Crisis',
-        album: 'Firestorm',
+        album: '1991-2001 (Forever True)',
         id: 10
       }]
     };
