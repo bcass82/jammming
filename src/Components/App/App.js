@@ -1,19 +1,41 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+//import logo from './logo.svg';
 import './App.css';
 import SearchBar from '../SearchBar/SearchBar'
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 import Spotify from '../../util/Spotify';
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchResults: [],
-      playlistName: 'Awesome Songs',
-      playlistTracks: []
-    }
+      searchResults: [{
+        name: 'Blistered',
+        artist: 'Strife',
+        album: 'In This Defiance',
+        id: 1
+      },
+      {
+        name:'Let The Past Be The Past',
+        artist: '25 ta life',
+        album: 'Friendship Loyalty Commitment',
+        id: 2
+      },
+      {
+        name: 'Kill Your Parents',
+        artist: 'Slapshot',
+        album: 'Digital Warfare',
+        id: 3
+      }],
+      playlistName: 'Hardcore',
+      playlistTracks: [{
+        name: 'Firestorm',
+        artist: 'Earth Crisis',
+        album: 'Firestorm',
+        id: 10
+      }]
+    };
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
@@ -25,9 +47,11 @@ class App extends Component {
     if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)) {
       return;
     } else {
+      let newTrack = this.state.playlistTracks.push(track);
       this.setState({
-        playlistTracks: playlistTracks.push(track)
-    });
+        playlistTracks: newTrack
+      });
+    }
   }
 
   removeTrack(track) {
@@ -52,13 +76,14 @@ class App extends Component {
       Spotify.savePlaylist(this.state.playlistName, trackURIs)
     } else {
       this.setState({
-        playlistName: 'Good Tunes',
+        playlistName: 'Good Tu',
         playlistTracks: []
       })
     }
   }
 
   search(term) {
+    //console.log(term);
     Spotify.search(term).then(response => {
       this.setState({
         searchResults: response
