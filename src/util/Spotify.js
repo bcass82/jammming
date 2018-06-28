@@ -54,7 +54,7 @@ const Spotify = {
       return fetch('https://api.spotify.com/v1/me', {headers: headers}).then(response => {
         return response.json();
       }).then(jsonResponse => {
-        //let userID = jsonResponse.id;
+        let userID = jsonResponse.id;
       }).then(userID => {
         fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
           method: 'POST',
@@ -75,22 +75,4 @@ const Spotify = {
   }
 }
 
-
-/*
-  handleTermChange(event) {
-    this.setState({
-      term: event.target.value
-    })
-  }
-
-  render() {
-    return (
-      <div className="SearchBar">
-        <input placeholder="Enter A Song, Album, or Artist" onChange={this.handleTermChange}/>
-        <a>SEARCH</a>
-      </div>
-    )
-  }
-}
-*/
 export default Spotify;
