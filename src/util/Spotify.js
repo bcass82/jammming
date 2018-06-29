@@ -1,7 +1,7 @@
 //import React from 'react';
 //import './SearchBar.css';
 const clientID = '5bab9b453da744ccb80b7909faf2e392';
-const redirectURI = 'http://localhost:3000/';
+const redirectURI = 'daily-son.surge.sh';
 
 let accessToken;
 
