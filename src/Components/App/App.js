@@ -16,7 +16,7 @@ class App extends React.Component {
         name: 'Firestorm',
         artist: 'Earth Crisis',
         album: '1991-2001 (Forever True)',
-        id: 10
+        id: 1
       }]
     };
     this.addTrack = this.addTrack.bind(this);
